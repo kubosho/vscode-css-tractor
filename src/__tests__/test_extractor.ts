@@ -1,9 +1,8 @@
 import test from 'ava';
 import { readFile as lagacyReadFile } from 'fs';
 import { promisify } from 'util';
-import { Extractor } from '../extractor';
+import { createExtractor } from '../extractor';
 
-const extractor = new Extractor();
 const readFile = promisify(lagacyReadFile);
 
 test('extract class selectors', async (t) => {
@@ -11,7 +10,8 @@ test('extract class selectors', async (t) => {
     `${process.cwd()}/testcases/html/list.html`,
     'utf8',
   );
-  const actual = extractor.extractClassSelectors(content);
+  const extractor = createExtractor();
+  const actual = extractor.extractClassName(content);
 
   t.is(actual.length, 6);
   t.is(actual[0], '.list');
@@ -23,7 +23,8 @@ test('extract multiple class selectors', async (t) => {
     `${process.cwd()}/testcases/html/multiple-classes.html`,
     'utf8',
   );
-  const actual = extractor.extractClassSelectors(content);
+  const extractor = createExtractor();
+  const actual = extractor.extractClassName(content);
 
   t.is(actual.length, 3);
   t.is(actual[0], '.container.container-fluid.article');
@@ -36,10 +37,11 @@ test('extract id selectors', async (t) => {
     `${process.cwd()}/testcases/html/id.html`,
     'utf8',
   );
-  const actual = extractor.extractIDSelectors(content);
+  const extractor = createExtractor();
+  const actual = extractor.extractId(content);
 
   t.is(actual.length, 3);
   t.is(actual[0], '#global-header');
-  t.is(actual[1], '#site-title');
-  t.is(actual[2], '#global-footer');
+  t.is(actual[1], '#global-footer');
+  t.is(actual[2], '#site-title');
 });
