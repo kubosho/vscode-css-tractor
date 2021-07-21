@@ -56,16 +56,16 @@
     "eslint": "7.31.0",
     "glob": "7.1.7",
     "mocha": "8.2.1",
-    "typescript": "4.3.2",
     "semantic-release": "17.4.4",
     "semantic-release-vsce": "3.4.1",
-    "vscode": "1.1.37",
+    "typescript": "4.3.2",
     "vscode-test": "1.5.2"
   },
   "dependencies": {
     "domhandler": "^4.2.0",
     "htmlparser2": "^6.1.0",
     "option-t": "^28.0.0",
-    "prettier": "^2.0.5"
+    "prettier": "^2.0.5",
+    "vscode": "1.1.37"
   }
 }
