@@ -61,7 +61,7 @@
     "semantic-release": "17.2.3",
     "semantic-release-vsce": "3.0.1",
     "vscode": "1.1.37",
-    "vscode-test": "1.4.0"
+    "vscode-test": "1.6.1"
   },
   "dependencies": {
     "htmlparser2": "^4.0.0",
