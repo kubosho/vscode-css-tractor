@@ -40,13 +40,12 @@
     "release": "semantic-release"
   },
   "devDependencies": {
-    "@types/glob": "7.1.4",
     "@semantic-release/changelog": "5.0.1",
     "@semantic-release/commit-analyzer": "8.0.1",
     "@semantic-release/git": "9.0.0",
     "@semantic-release/github": "7.2.3",
     "@semantic-release/release-notes-generator": "9.0.3",
-    "@types/htmlparser2": "3.10.2",
+    "@types/glob": "7.1.4",
     "@types/mocha": "8.2.3",
     "@types/node": "14.17.3",
     "@types/prettier": "2.3.2",
