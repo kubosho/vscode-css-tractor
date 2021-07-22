@@ -9,7 +9,7 @@ const supportedFormats = ['html'];
 export async function runCSSExtractor(): Promise<void> {
   const editor = vscodeWindow.activeTextEditor;
 
-  const extractor = createExtractor();
+  const extractor = createExtractor({ filetype: 'html' });
   const formatter = new Formatter();
 
   if (isUndefined(editor) || isNull(extractor) || isNull(formatter)) {

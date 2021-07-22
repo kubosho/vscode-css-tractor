@@ -1,6 +1,10 @@
 import { Element, Node, isTag } from 'domhandler';
 import { parseDocument } from 'htmlparser2';
 
+type Params = {
+  filetype: 'html' | 'jsx';
+};
+
 export interface Extractor {
   extractClassName(contents: string): string[];
   extractId(contents: string): string[];
@@ -9,24 +13,28 @@ export interface Extractor {
 class ExtractorImpl implements Extractor {
   private _classNames: string[];
   private _ids: string[];
+  private _filetype: 'html' | 'jsx';
 
-  constructor() {
+  constructor({ filetype }: Params) {
     this._classNames = [];
     this._ids = [];
+    this._filetype = filetype;
   }
 
   extractClassName(contents: string): string[] {
-    const root = parseDocument(contents);
-
-    this._extractClassNameFromHtml(root.children);
+    if (this._filetype === 'html') {
+      const root = parseDocument(contents);
+      this._extractClassNameFromHtml(root.children);
+    }
 
     return this._classNames;
   }
 
   extractId(contents: string): string[] {
-    const root = parseDocument(contents);
-
-    this._extractIdFromHtml(root.children);
+    if (this._filetype === 'html') {
+      const root = parseDocument(contents);
+      this._extractIdFromHtml(root.children);
+    }
 
     return this._ids;
   }

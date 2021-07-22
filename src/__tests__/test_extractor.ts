@@ -10,7 +10,7 @@ test('extract class selectors', async (t) => {
     `${process.cwd()}/testcases/html/list.html`,
     'utf8',
   );
-  const extractor = createExtractor();
+  const extractor = createExtractor({ filetype: 'html' });
   const actual = extractor.extractClassName(content);
 
   t.is(actual.length, 6);
@@ -23,7 +23,7 @@ test('extract multiple class selectors', async (t) => {
     `${process.cwd()}/testcases/html/multiple-classes.html`,
     'utf8',
   );
-  const extractor = createExtractor();
+  const extractor = createExtractor({ filetype: 'html' });
   const actual = extractor.extractClassName(content);
 
   t.is(actual.length, 3);
@@ -37,7 +37,7 @@ test('extract id selectors', async (t) => {
     `${process.cwd()}/testcases/html/id.html`,
     'utf8',
   );
-  const extractor = createExtractor();
+  const extractor = createExtractor({ filetype: 'html' });
   const actual = extractor.extractId(content);
 
   t.is(actual.length, 3);
