@@ -4,7 +4,7 @@ import { window as vscodeWindow, workspace as vscodeWorkspace } from 'vscode';
 import { createExtractor } from './extractor';
 import { Formatter } from './formatter';
 
-const supportedFormats = ['html'];
+const supportedFormats = ['html', 'jsx'];
 
 export async function runCSSExtractor(): Promise<void> {
   const editor = vscodeWindow.activeTextEditor;
